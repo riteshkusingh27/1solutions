@@ -42,7 +42,7 @@ function App() {
                 className="h-16 w-16 rounded-2xl object-contain drop-shadow-glow"
               />
               <div>
-                <p className="font-oswald text-2xl font-extrabold text-slate-900">ONE SOLUTIONS</p>
+                <p className="font-sora text-2xl font-extrabold text-slate-900">ONE SOLUTIONS</p>
               </div>
             </div>
           </div>
