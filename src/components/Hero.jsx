@@ -12,7 +12,7 @@ const fadeIn = {
 const Hero = () => {
   return (
     <motion.section
-      className="relative overflow-hidden px-6 pb-24 pt-10 sm:pt-16 lg:pt-24"
+      className="relative overflow-hidden px-6 pb-6 pt-10 sm:pt-16 md:pb-18 lg:pt-24"
       {...fadeIn}
     >
       <div className="pointer-events-none absolute -left-12 top-8 h-64 w-64 animate-float rounded-full bg-primary/15 blur-3xl" />
