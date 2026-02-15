@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root theme */
+:root {
+  font-family: 'Poppins', 'Inter', 'Segoe UI', sans-serif;
+  background-color: transparent;
+  color: #0f172a;
+}
+
+/* Reset html */
+html {
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Body reset */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url('/bg.gif');
+  background-position: 100% 50px; /* shift GIF further right, keep height */
+  background-size: 57% auto; /* keep GIF smaller */
+  background-color: rgba(255, 255, 255, 0.00);
+  background-blend-mode: lighten;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+  
+}
+
+/* Adjust GIF placement on small screens so it sits lower and left */
+@media (max-width: 640px) {
+  body {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* Components */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+    px-5 py-3 text-sm font-semibold text-slate-900
+    border border-slate-900 bg-transparent transition
+    hover:bg-slate-900 hover:text-white
+    active:scale-[0.99];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+    border border-slate-400 bg-transparent
+    px-5 py-3 text-sm font-semibold text-slate-900
+    transition
+    hover:border-slate-900 hover:text-white hover:bg-slate-900
+    active:scale-[0.99];
+  }
+
+  .glass {
+    @apply rounded-3xl border border-white/30
+    bg-slate-50/10 backdrop-blur;
+  }
+
+  .card-sheen {
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02) 35%,
+      rgba(255, 255, 255, 0.08)
+    );
+    background-size: 200% 100%;
+    animation: shimmer 6s linear infinite;
+  }
+
+  .section-heading {
+    @apply text-sm font-semibold uppercase
+    tracking-[0.2em] text-slate-500;
+  }
+
+  .header-neon {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-neon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2.5px;
+    background: rgba(30, 64, 175, 0.9);
+    filter: drop-shadow(0 0 6px rgba(134, 231, 248, 0.5)) drop-shadow(0 0 10px rgba(16, 199, 231, 0.35));
+    transform: translateX(-100%);
+    animation: header-underline 1.1s ease-out forwards;
+    pointer-events: none;
+  }
+
+  @keyframes header-underline {
+    0% { transform: translateX(-100%); opacity: 0; }
+    35% { opacity: 1; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  .floating-contacts {
+    position: fixed;
+    right: 10px;
+    top: 70%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px 8px;
+    background: rgba(255,255,255,0.15);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(255,255,255,0.2);
+    /* border: none; */
+    border-radius: 9999px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    z-index: 50;
+  }
+
+  .floating-contacts .contact-btn {
+    width: 42px;
+    height: 44px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #99a6c5;
+    border: none;
+    overflow: hidden;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .floating-contacts .contact-btn .contact-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .floating-contacts .contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 640px) {
+    .floating-contacts {
+      right: 10px;
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+      flex-direction: column;
+      padding: 8px 6px;
+      gap: 8px;
+    }
+
+    .floating-contacts .contact-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: 'Orbitron', 'Inter', 'Segoe UI', sans-serif;
+  }
+
+  .font-spacegrotesk {
+    font-family: 'Space Grotesk', 'Inter', 'Segoe UI', sans-serif;
+  }
+
+  .font-oswald {
+    font-family: 'Oswald', 'Inter', 'Segoe UI', sans-serif;
+  }
+
+  .text-flip-color {
+    color: #ff7a00;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    animation: color-flash 8.2s steps(4, end) infinite;
+  }
+}
+
+@keyframes color-flash {
+  0% {
+    color: #ff7a00;
+  }
+  25% {
+    color: #f97316;
+  }
+  50% {
+    color: #0ea5e9;
+  }
+  75% {
+    color: #22c55e;
+  }
+  100% {
+    color: #ff7a00;
+  }
+}
