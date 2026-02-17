@@ -3,7 +3,7 @@ export const hero = {
   title: 'We design bold, high-converting digital experiences.',
   subtitle:
     'Digital Presence Delivered.',
-  primaryCta: 'Get a proposal',
+  primaryCta: 'Get Quote',
   secondaryCta: 'View services',
   stats: [
     { label: 'Avg. conversion lift', value: '+38%' },
