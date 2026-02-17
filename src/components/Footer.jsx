@@ -13,8 +13,8 @@ const Footer = () => (
           <a className="font-semibold text-[#0b1c3d] hover:text-[#0891b2]" href="tel:+1234567890">
             +91 98869 51614
           </a>
-          <a className="font-semibold text-[#0b1c3d] hover:text-[#0891b2]" href="mailto:hello@onesolutions.studio">
-            hello@onesolutions.studio
+          <a className="font-semibold text-[#0b1c3d] hover:text-[#0891b2]" href="mailto:contact@onesolutions.tech">
+            contact@onesolutions.tech
           </a>
         </div>
 
