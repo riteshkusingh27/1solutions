@@ -52,7 +52,9 @@ const Hero = () => {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          
+        </div>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             {hero.stats.map((stat) => (
               <div key={stat.label} className="glass card-sheen p-4 shadow-card">
                 <p className="text-2xl font-semibold text-slate-900">{stat.value}</p>
@@ -60,7 +62,6 @@ const Hero = () => {
               </div>
             ))}
           </div>
-        </div>
 
         
       </div>

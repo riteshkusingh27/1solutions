@@ -7,7 +7,7 @@ export const hero = {
   secondaryCta: 'View services',
   stats: [
     { label: 'Avg. conversion lift', value: '+38%' },
-    { label: 'Projects delivered', value: '120+' },
+    { label: 'Projects delivered', value: '60+' },
     { label: 'Client NPS', value: '72' },
   ],
 };
