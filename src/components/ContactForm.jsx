@@ -23,7 +23,7 @@ const ContactForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('https://serpbackend-r3hm.vercel.app/api/contact', {
+      const response = await fetch('https://serpbackend-dzuq.vercel.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
