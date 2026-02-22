@@ -14,6 +14,9 @@ const ContactForm = () => {
   }
 
   const [formData, setFormData] = useState(initialFormData)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const isInvalid = Object.values(formData).some((value) => !String(value).trim())
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -22,6 +25,13 @@ const ContactForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    if (isInvalid) {
+      toast.error('Please fill in all fields.')
+      return
+    }
+
+    setIsSubmitting(true)
+
     try {
       const response = await fetch('https://serpbackend-dzuq.vercel.app/api/contact', {
         method: 'POST',
@@ -47,12 +57,19 @@ const ContactForm = () => {
       setFormData(initialFormData)
     } catch (error) {
       toast.error('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
   return (
     <>
-      <ToastContainer position="top-center" toastClassName="rounded-2xl shadow-lg" />
+      <ToastContainer
+        position="top-center"
+        className="toastify-container"
+        toastClassName={() => 'toastify-toast'}
+        bodyClassName="toastify-body"
+      />
 
       <motion.section
         id="contact"
@@ -131,8 +148,22 @@ const ContactForm = () => {
               />
             </label>
             <div className="sm:col-span-2 flex flex-wrap items-center gap-3">
-              <button type="submit" className="btn-primary">
-                Send message
+              <button
+                type="submit"
+                className="btn-primary"
+                disabled={isSubmitting || isInvalid}
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <span
+                      className="h-4 w-4 rounded-full border-2 border-white/70 border-t-transparent animate-spin"
+                      aria-hidden
+                    />
+                    Sending...
+                  </span>
+                ) : (
+                  'Send message'
+                )}
               </button>
               <p className="text-sm text-slate-600">We reply within one business day.</p>
             </div>
