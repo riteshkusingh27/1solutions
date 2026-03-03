@@ -18,7 +18,7 @@ function App() {
       <div className="relative overflow-hidden">
       
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/20 via-transparent to-transparent blur-3xl" aria-hidden />
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 pt-6 header-neon sm:pb-2 md:pb-1">
+        <div className="flex w-full items-center justify-between px-4 sm:px-6 lg:px-10 pt-6 header-neon sm:pb-2 md:pb-1">
           <div className="flex items-center gap-3">
             {/* Mobile hamburger on the left */}
               <button
