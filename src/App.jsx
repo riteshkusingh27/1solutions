@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { Routes, Route, Link } from 'react-router-dom'
 import Hero from './components/Hero'
 import SocialProof from './components/SocialProof'
 import Services from './components/Services'
 import Process from './components/Process'
 import WhyChooseUs from './components/WhyChooseUs'
+import Portfolio from './components/Portfolio'
 import FinalCTA from './components/FinalCTA'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
@@ -42,18 +44,21 @@ function App() {
                 className="h-16 w-16 rounded-2xl object-contain drop-shadow-glow"
               />
               <div>
-                <p className="font-sora text-2xl font-extrabold text-slate-900">ONE SOLUTIONS</p>
+                <p className="font-Mulish text-2xl font-extrabold text-slate-900">One Solutions</p>
               </div>
             </div>
           </div>
 
           <div className="hidden items-center gap-3 md:flex">
-            <a className="btn-secondary" href="#services">
+            <Link className="font-semibold text-[#0b1c3d] hover:text-[#0891b2] px-4 py-2 transition border-0 rounded-none shadow-none bg-transparent" to="/#services">
               View services
-            </a>
-            <a className="btn-primary" href="#contact">
+            </Link>
+            <Link className="font-semibold text-[#0b1c3d] hover:text-[#0891b2] px-4 py-2 transition border-0 rounded-none shadow-none bg-transparent" to="/portfolio">
+              Portfolio
+            </Link>
+            <Link className="btn-primary" to="/#contact">
               Start a project
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -75,12 +80,15 @@ function App() {
             </button>
           </div>
           <div className="mt-4 flex flex-col gap-3">
-            <a className="btn-secondary w-full justify-center" href="#services" onClick={() => setMenuOpen(false)}>
+            <Link className="font-semibold text-[#0b1c3d] hover:text-[#0891b2] w-full justify-center px-4 py-2 transition border-0 rounded-none shadow-none bg-transparent" to="/#services" onClick={() => setMenuOpen(false)}>
               View services
-            </a>
-            <a className="btn-primary w-full justify-center" href="#contact" onClick={() => setMenuOpen(false)}>
+            </Link>
+            <Link className="font-semibold text-[#0b1c3d] hover:text-[#0891b2] w-full justify-center px-4 py-2 transition border-0 rounded-none shadow-none bg-transparent" to="/portfolio" onClick={() => setMenuOpen(false)}>
+              Portfolio
+            </Link>
+            <Link className="btn-primary w-full justify-center rounded-none" to="/#contact" onClick={() => setMenuOpen(false)}>
               Start a project
-            </a>
+            </Link>
           </div>
         </div>
         {menuOpen && (
@@ -92,15 +100,27 @@ function App() {
           />
         )}
 
-        <Hero />
-        <SocialProof />
-        <Services />
-        <Process />
-        <WhyChooseUs />
-        <FinalCTA />
-        <ContactForm />
-        <Footer />
-        <FloatingContacts />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <SocialProof />
+              <Services />
+              <Process />
+              <WhyChooseUs />
+              <FinalCTA />
+              <ContactForm />
+              <Footer />
+              <FloatingContacts />
+            </>
+          } />
+          <Route path="/portfolio" element={
+            <>
+              <Portfolio />
+              <Footer />
+            </>
+          } />
+        </Routes>
       </div>
     </div>
   )

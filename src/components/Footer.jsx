@@ -6,6 +6,12 @@ const Footer = () => (
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">One Solutions</p>
           <p className="text-lg font-semibold text-slate-900">Design partners for bold digital experiences.</p>
           <p className="text-sm text-slate-600">© {new Date().getFullYear()} OneSolutions. Crafted with care.</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 mt-4">Address</p>
+          <div className="max-w-sm text-sm text-slate-700" w-rap="break-word">
+            <address className="not-italic text-sm text-slate-700">
+            BHIVE Workspace - No.112, AKR Tech Park, B Block, 7th Mile Hosur Rd, Kudlu Gate, Krishna Reddy Industrial Area, Hosapalaya, Muneshwara Nagar, Bengaluru, Karnataka 560068
+          </address>
+          </div>
         </div>
 
         <div className="flex flex-col gap-3 text-sm text-slate-800">
