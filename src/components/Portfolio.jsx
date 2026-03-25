@@ -13,8 +13,7 @@ const projects = [
       'Mobile-first UX',
     ],
     tag: 'Global Clients',
-    cta: 'View Project →',
-    href: '#',
+    accent: 'amber',
   },
   {
     icon: Stethoscope,
@@ -27,8 +26,7 @@ const projects = [
       'Admin dashboard',
     ],
     tag: 'Healthcare Tech',
-    cta: 'View Project →',
-    href: '#',
+    accent: 'blue',
   },
   {
     icon: Gamepad2,
@@ -41,8 +39,7 @@ const projects = [
       'Tournament integration',
     ],
     tag: 'Gaming & Experience',
-    cta: 'View Project →',
-    href: '#',
+    accent: 'purple',
   },
   {
     icon: Layers3,
@@ -51,8 +48,7 @@ const projects = [
       'We’ve built solutions across multiple niches including booking platforms, landing pages, and custom business tools.',
     highlights: [],
     tag: 'Multi-Niche Expertise',
-    cta: 'Contact Us →',
-    href: '#contact',
+    accent: 'gray',
   },
 ];
 
@@ -86,21 +82,33 @@ export default function Portfolio() {
         >
           {projects.map((project, idx) => {
             const Icon = project.icon;
+            // Accent color classes
+            let accentBg = 'bg-white dark:bg-neutral-900';
+            let accentText = 'text-slate-500';
+            let tagBg = 'bg-white dark:bg-neutral-900';
+            let tagText = 'text-slate-500';
+            if (project.accent === 'amber') {
+              accentText = 'text-amber-500';
+            } else if (project.accent === 'blue') {
+              accentText = 'text-blue-500';
+            } else if (project.accent === 'purple') {
+              accentText = 'text-purple-500';
+            }
             return (
               <motion.div
                 key={project.title}
                 variants={cardVariants}
                 whileHover={{ scale: 1.02, boxShadow: '0 2px 16px 0 rgba(30,41,59,0.07)' }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="flex items-center gap-6 rounded-2xl bg-neutral-50 dark:bg-neutral-800 shadow-sm hover:shadow-md border border-slate-100 dark:border-neutral-700 px-6 py-6 md:py-8 mb-6 w-full max-w-full"
+                className="flex items-center gap-6 rounded-2xl bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md border border-slate-100 dark:border-neutral-700 px-6 py-6 md:py-8 mb-6 w-full max-w-full"
                 style={{ minHeight: '120px' }}
               >
-                <div className="flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-xl bg-slate-100 dark:bg-neutral-700">
-                  <Icon className="w-8 h-8 text-slate-500 dark:text-slate-300" />
+                <div className={`flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-xl ${accentBg}`}>
+                  <Icon className={`w-8 h-8 ${accentText}`} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 bg-slate-50 dark:bg-neutral-700 px-2 py-1 rounded-full">
+                    <span className={`text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full ${tagBg} ${tagText}`}>
                       {project.tag}
                     </span>
                   </div>
@@ -115,7 +123,6 @@ export default function Portfolio() {
                       ))}
                     </ul>
                   )}
-                  {/* CTA removed as requested */}
                 </div>
               </motion.div>
             );
