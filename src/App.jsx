@@ -38,13 +38,15 @@ function App() {
             </button>
 
             <div className="flex items-center gap-1">
-              <img
+             <a href="/" className="flex items-center gap-2 group">
+               <img
                 src="/logo.png"
                 alt="OneSolutions Studio logo"
                 className="h-16 w-16 rounded-2xl object-contain drop-shadow-glow"
               />
+             </a>
               <div>
-                <p className="font-Mulish text-2xl font-extrabold text-slate-900">One Solutions</p>
+                <p className="font-bebas text-4xl font-extrabold text-white tracking-[0.05em] px-2" style={{ letterSpacing: '0.05em', fontFamily: 'Bebas Neue, sans-serif', WebkitTextStroke: '0.4px black', textStroke: '0.4px black' }}>ONeSolutions</p>
               </div>
             </div>
           </div>
