@@ -16,4 +16,9 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://onesolutions.tech/portfolio</loc>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
