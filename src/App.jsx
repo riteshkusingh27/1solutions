@@ -46,7 +46,7 @@ function App() {
               />
              </a>
               <div>
-                <p className="font-bebas text-4xl font-extrabold text-white tracking-[0.05em] px-2" style={{ letterSpacing: '0.05em', fontFamily: 'Bebas Neue, sans-serif', WebkitTextStroke: '0.4px black', textStroke: '0.4px black' }}>ONeSolutions</p>
+                <p className="font-bebas text-4xl font-extrabold text-white tracking-[0.05em] px-2" style={{ letterSpacing: '0.05em', fontFamily: 'Bebas Neue, sans-serif', WebkitTextStroke: '0.2px black', textStroke: '0.2px black' }}>ONeSolutions</p>
               </div>
             </div>
           </div>
