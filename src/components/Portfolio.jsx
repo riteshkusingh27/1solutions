@@ -4,6 +4,7 @@ import image from '../assets/image.png';
 import po from  '../assets/imag2.png';
 import dd from '../assets/dd.png';
 import chim from '../assets/chim.png';
+import dsd from '../assets/dsd.png';
 
 // Portfolio data with real project content only
 const projects = [
@@ -43,15 +44,15 @@ const projects = [
     href: 'https://mrchiminyc.com',
     icon: Gamepad2,
   },
-  // {
-  //   id: 5,
-  //   image: '/vite.svg',
-  //   title: 'SaaS Dashboard',
-  //   category: 'SaaS',
-  //   description: 'A SaaS dashboard launched in 3 weeks, featuring analytics and real-time data.',
-  //   href: 'https://saas-demo.com',
-  //   icon: Layers3,
-  // },
+  {
+    id: 5,
+    image: dsd,
+    title: 'DSD Premium Gaming',
+    category: 'Gaming Cafe Management',
+    description: 'We transformed DSD Gaming Cafe into a full-scale digital esports platform, focused on tournament control and community engagement. Instead of a basic site, we built a system that enables seamless tournament creation, management, and participation.',
+    href: 'https://dsdpremiumgaming.com',
+    icon: Layers3,
+  },
 ];
 
 
