@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { Utensils, Stethoscope, Gamepad2, Layers3 } from 'lucide-react';
+
 import image from '../assets/image.png';
 import po from  '../assets/imag2.png';
 import dd from '../assets/dd.png';
 import chim from '../assets/chim.png';
 import dsd from '../assets/dsd.png';
+import serp from '../assets/serp.png';
 
 // Portfolio data with real project content only
 const projects = [
@@ -53,6 +55,16 @@ const projects = [
     href: 'https://dsdpremiumgaming.com',
     icon: Layers3,
   },
+  // SERP Vidya ERP Product Section
+  {
+    id: 6,
+    image: serp,
+    title: 'SERP Vidya ERP',
+    category: 'School ERP',
+    description: 'A simple, reliable ERP management tool for schools—covering student records, attendance, fees, exams, communication, and reports. Built for clarity, security, and ease of use.',
+    href: 'https://serpvidya.app',
+    icon: Layers3,
+  },
 ];
 
 
@@ -63,17 +75,42 @@ const getRowVariants = (isEven) => ({
   show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 });
 
+import React, { useState } from 'react';
+
 export default function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState('Webapps');
+
+  // Define the two main categories
+  const categories = [
+    { label: 'Webapps', filter: (p) => p.category !== 'School ERP' },
+    { label: 'Products', filter: (p) => p.category === 'School ERP' },
+  ];
+
+  const currentCategory = categories.find((c) => c.label === selectedCategory);
+
   return (
     <section id="portfolio" className="relative py-20 px-2 sm:px-6 bg-gradient-to-b from-white via-slate-50 to-white">
       <div className="mx-auto max-w-5xl">
         {/* Section Header */}
         <div className="mb-10 text-center">
           <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-2 drop-shadow-lg">Selected Work</h2>
-          <p className="text-lg text-slate-600 mb-6">Real products. Real results.</p>
+          <p className="text-lg text-slate-600 mb-2">Real products. Real results.</p>
         </div>
+        {/* Category Tabs */}
+        <div className="flex justify-center gap-4 mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat.label}
+              onClick={() => setSelectedCategory(cat.label)}
+              className={`px-6 py-2 rounded-full font-bold text-lg transition-all duration-200 border-2 ${selectedCategory === cat.label ? 'bg-cyan-700 text-white border-cyan-700 shadow-lg' : 'bg-cyan-50 text-cyan-700 border-cyan-200 hover:bg-cyan-100'}`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+        {/* Category Content */}
         <div className="flex flex-col gap-16">
-          {projects.map((project, idx) => {
+          {projects.filter(currentCategory.filter).map((project, idx) => {
             const Icon = project.icon;
             const isEven = idx % 2 === 1;
             return (
@@ -102,7 +139,7 @@ export default function Portfolio() {
                       />
                       {/* Hover Overlay - only button, no dark background */}
                       <span className="absolute inset-0 flex items-center justify-center rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                        <span className="text-white text-lg font-semibold bg-cyan-600/90 px-6 py-2 rounded-full shadow-lg select-none">View Website →</span>
+                        <span className="text-white text-lg font-semibold bg-cyan-600/90 px-6 py-2 rounded-full shadow-lg select-none">{selectedCategory === 'Webapps' ? 'View Website →' : 'Visit serpvidya.app →'}</span>
                       </span>
                     </a>
                   ) : (
@@ -128,9 +165,9 @@ export default function Portfolio() {
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-primary bg-cyan-50 text-cyan-700 hover:bg-cyan-500 hover:text-white shadow-lg px-5 py-2 rounded-full font-semibold text-base transition-all duration-200"
+                      className="btn-primary bg-cyan-50 text-cyan-700 hover:bg-cyan-500 hover:text-white shadow-lg px-5 py-2 rounded-full font-semibold text-base transition-all duration-200 mt-2"
                     >
-                      View Live Site →
+                      {selectedCategory === 'Webapps' ? 'View Live Site →' : 'Visit serpvidya.app →'}
                     </a>
                   )}
                 </div>
