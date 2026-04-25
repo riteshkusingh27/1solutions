@@ -40,6 +40,11 @@ body {
   
 }
 
+body.blog-page {
+  background-image: none;
+  background-color: #ffffff;
+}
+
 /* Adjust GIF placement on small screens so it sits lower and left */
 @media (max-width: 640px) {
   body {
@@ -161,6 +166,10 @@ border: 1px solid rgba(255,255,255,0.2);
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .floating-contacts .contact-btn .instagram-icon {
+    color: #000000;
   }
 
   .floating-contacts .contact-btn:hover {
