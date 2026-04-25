@@ -13,4 +13,11 @@ export const blogPosts = [
     author: 'Ritesh',
     image: 'https://res.cloudinary.com/dtigmagdl/image/upload/v1777110135/b2d00d1e-a8c5-47b7-8e6b-06303728f9ca_dfpvl0.png',
   },
+  {
+    slug: '/instagram-clients-ai-tools-guide',
+    title: 'How to Get Clients from Instagram Using AI Tools (2026 Complete Guide)',
+    date: 'April 25, 2026',
+    author: 'Ritesh',
+    image: 'https://res.cloudinary.com/dtigmagdl/image/upload/v1777111132/4efde28c-ee40-4585-a6f9-dc090bad9a4d_qkbqm2.png',
+  },
 ]

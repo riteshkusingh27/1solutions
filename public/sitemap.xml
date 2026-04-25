@@ -21,4 +21,24 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://onesolutions.tech/blogs</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://onesolutions.tech/nothing-phone-3a-update-b41</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://onesolutions.tech/why-business-needs-website</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://onesolutions.tech/instagram-clients-ai-tools-guide</loc>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>

@@ -13,6 +13,8 @@ import FloatingContacts from './components/FloatingContacts'
 import BlogPost from './components/BlogPost'
 import BlogWebsite from './components/BlogWebsite'
 import BlogIndex from './components/BlogIndex'
+import BlogInstagramAI from './components/BlogInstagramAI'
+import { blogPosts } from './data/blogPosts'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -20,7 +22,8 @@ function App() {
   const isBlogPage =
     location.pathname === '/blogs' ||
     location.pathname === '/why-business-needs-website' ||
-    location.pathname === '/nothing-phone-3a-update-b41'
+    location.pathname === '/nothing-phone-3a-update-b41' ||
+    location.pathname === '/instagram-clients-ai-tools-guide'
 
   useEffect(() => {
     document.body.classList.toggle('blog-page', isBlogPage)
@@ -28,6 +31,21 @@ function App() {
       document.body.classList.remove('blog-page')
     }
   }, [isBlogPage])
+
+  useEffect(() => {
+    const matchedPost = blogPosts.find((post) => post.slug === location.pathname)
+    if (matchedPost) {
+      document.title = `${matchedPost.title} | One Solutions`
+      return
+    }
+
+    if (location.pathname === '/blogs') {
+      document.title = 'Blogs | One Solutions'
+      return
+    }
+
+    document.title = 'One Solutions'
+  }, [location.pathname])
 
   return (
     <div className={`min-h-screen text-slate-900 ${isBlogPage ? 'bg-white' : 'bg-transparent'} pb-1`}>
@@ -161,6 +179,12 @@ function App() {
           <Route path="/why-business-needs-website" element={
             <>
               <BlogWebsite />
+              <Footer />
+            </>
+          } />
+          <Route path="/instagram-clients-ai-tools-guide" element={
+            <>
+              <BlogInstagramAI />
               <Footer />
             </>
           } />
