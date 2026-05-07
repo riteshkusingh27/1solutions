@@ -15,6 +15,7 @@ import BlogWebsite from './components/BlogWebsite'
 import BlogIndex from './components/BlogIndex'
 import BlogInstagramAI from './components/BlogInstagramAI'
 import { blogPosts } from './data/blogPosts'
+import floLogo from './assets/flo.png'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -76,14 +77,11 @@ function App() {
             <div className="flex items-center gap-1">
              <a href="/" className="flex items-center gap-2 group">
                <img
-                src="/logo.png"
+                src={floLogo}
                 alt="OneSolutions Studio logo"
-                className="h-16 w-16 rounded-2xl object-contain drop-shadow-glow"
+                className="h-16 w-16 rounded-2xl object-contain drop-shadow-glow scale-[1.9] origin-left"
               />
              </a>
-              <div>
-                <p className="font-bebas text-4xl font-extrabold text-white tracking-[0.05em] px-2" style={{ letterSpacing: '0.05em', fontFamily: 'Bebas Neue, sans-serif', WebkitTextStroke: '0.2px black', textStroke: '0.2px black' }}>ONeSolutions</p>
-              </div>
             </div>
           </div>
 
